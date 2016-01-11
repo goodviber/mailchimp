@@ -1,0 +1,20 @@
+<h1>Lists#view</h1>
+
+<h2><%= @list['name'] %></h2>
+
+<h3>Members</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Email</th>
+        <th>Subscribed Since</th>
+        <th>Member Rating</th>
+    </tr>
+    <% @members.each do |member| %>
+    <tr>
+        <td><%= member['email'] %></td>
+        <td><%= member['timestamp'] %></td>
+        <td><%= member['member_rating'] %></td>
+    </tr>
+    <% end %>
+</table>

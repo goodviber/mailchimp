@@ -1,0 +1,26 @@
+<h1>Lists#index</h1>
+<p>Find me in app/views/lists/index.html.erb</p>
+
+<h2>Your MailChimp Lists</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Subscriber Count</th>
+        <th>Date Created</th>
+        <th>List Rating</th>
+    </tr>
+
+    <% @lists.each do |list| %>
+    <tr>
+        <td><a href="/lists/<%= list['id'] %>"><%= list['name'] %></a></td>
+        <td><%= list['stats']['member_count'] %></td>
+        <td><%= list['date_created'] %></td>
+        <td><%= list['list_rating'] %></td>
+        <td>
+          <%= link_to 'Download CSV list', controller: "lists", action: "show", format: "csv", id: list['id'] %>
+        </td>
+    </tr>
+    <% end %>
+
+</table>

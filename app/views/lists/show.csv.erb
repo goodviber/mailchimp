@@ -1,0 +1,5 @@
+<%- headers = ['Email', 'Subscribed Since', 'Member Rating'] -%>
+<%= CSV.generate_line headers %>
+<%- @members.each do |member| -%>
+<%= CSV.generate_line([member['email'], member['timestamp'], member['member_rating']]) -%>
+<%- end -%>

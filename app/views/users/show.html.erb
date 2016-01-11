@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Api key:</strong>
+  <%= @user.api_key %>
+</p>
+
+<div class="navbar" style="margin-top:20px;">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li><a href="/lists">Lists</a></li>
+        </ul>
+    </div>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
