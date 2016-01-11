@@ -27,13 +27,6 @@ class ListsController < ApplicationController
       @list = lists_res['data'][0]
       members_res = @mc.lists.members(list_id)
       @members = members_res['data']
-
-      CSV.open("#{Rails.root}/exports.csv", "w") do |csv|
-        @members.each do |member|
-          CSV.generate_line([member['email'], member['timestamp'], member['member_rating']])
-        end
-      end
-
     rescue Mailchimp::ListDoesNotExistError
       flash[:error] = "The list could not be found"
       redirect_to "/lists/"
@@ -65,12 +58,5 @@ class ListsController < ApplicationController
         end
       end
 
-      #CSV.open("#{Rails.root}/exports.csv", "w") do |csv|
-      #  @members.each do |member|
-      #    CSV.generate_line([member['email'], member['timestamp'], member['member_rating']])
-      #  end
-      #end
-
   end
-
 end
